@@ -30,15 +30,14 @@ def optimal_lineup(remaining_players, lineup):
                     if player.get_name() == spot:
                         if captain:
                             total_salary += 1.5 * player.get_price()
-                            captain = False
                         else:
                             total_salary += player.get_price()
             else:
                 if captain:
                     total_salary += 1.5 * spot.get_price()
-                    captain = False
                 else:
                     total_salary += spot.get_price()
+        captain = False
     if total_salary > 50000:
         return 0
     if None not in lineup:
@@ -120,25 +119,18 @@ def lineup_score(players_chosen):
                         if p == player.get_name():
                             if captain:
                                 proj_score += 1.5 * player.get_proj_score()
-                                captain = False
                             else:
                                 proj_score += player.get_proj_score()
                 else:
                     if captain:
                         proj_score += p.get_proj_score()
-                        captain = False
                     else:
                         proj_score += player.get_proj_score()
+            captain = False
         return proj_score
 
-new_player_list = []
-for p in player_list:
-    if p.get_proj_score()/p.get_price() > 0.005 and p.get_name() not in \
-            ["Bogdan Bogdanovic", "Nemanja Bjelica", "Montrezl Harrell", "Willie Cauley-Stein", "Cody Zeller", "De'Aaron Fox"]:
-        new_player_list.append(p)
-
-best = optimal_lineup(new_player_list,
-                      ["De'Aaron Fox", "Bogdan Bogdanovic", "Nemanja Bjelica", "Montrezl Harrell", "Willie Cauley-Stein", None, None, None])
+best = optimal_lineup(player_list,
+                      [None, None, None, None, None, None])
 for p in best:
     if isinstance(p, str):
         print(p)
