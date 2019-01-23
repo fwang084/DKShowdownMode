@@ -1,5 +1,5 @@
 class Player:
-    def __init__(self, name, positions, price, proj_score):
+    def __init__(self, name, team, price, proj_score):
         self.name = name
         self.positions = positions
         self.price = price
@@ -8,10 +8,10 @@ class Player:
         return self.name
     def set_name(self, name):
         self.name = name
-    def get_positions(self):
-        return self.positions
-    def set_positions(self, positions):
-        self.positions = positions
+    def get_team(self):
+        return self.team
+    def set_team(self, team):
+        self.team = team
     def get_price(self):
         return self.price
     def set_price(self, price):
