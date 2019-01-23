@@ -26,7 +26,7 @@ def optimal_lineup(remaining_players, lineup):
     for spot in lineup:
         if spot is not None:
             if isinstance(spot, str):
-                for player in player_list:
+                for player in new_player_list:
                     if player.get_name() == spot:
                         if captain:
                             total_salary += 1.5 * player.get_price()
@@ -46,6 +46,7 @@ def optimal_lineup(remaining_players, lineup):
         return 0
     else:
         player = remaining_players[0]
+        print(player.get_name())
         available_slots = []
         for slot in [0, 1, 2, 3, 4, 5]:
             if lineup[slot] is None:
@@ -89,7 +90,7 @@ def lineup_score(players_chosen):
                                 proj_score += player.get_proj_score()
                 else:
                     if captain:
-                        proj_score += p.get_proj_score()
+                        proj_score += 1.5 * p.get_proj_score()
                     else:
                         proj_score += p.get_proj_score()
             captain = False
@@ -98,8 +99,6 @@ new_player_list = []
 for p in player_list:
     if p.get_name() not in ['Nikola Jokic'] and p.get_team() in ['DEN', 'UTA']:
         new_player_list.append(p)
-for p in new_player_list:
-    print(p.get_name())
 best = optimal_lineup(new_player_list,
                       ['Nikola Jokic', None, None, None, None, None])
 for p in best:

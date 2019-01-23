@@ -40,5 +40,8 @@ def create_players(player_list):
 roto_spreadsheet = xlrd.open_workbook('nba-player.xls')
 roto_info = roto_spreadsheet.sheet_by_index(0)
 
+draftkings_spreadsheet = xlrd.open_workbook('DKSalaries.xls')
+draftkings_info = draftkings_spreadsheet.sheet_by_index(0)
+
 player_list=[]
 create_players(player_list)
