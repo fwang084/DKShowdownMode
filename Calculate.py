@@ -125,7 +125,7 @@ def lineup_score(players_chosen):
                     if captain:
                         proj_score += p.get_proj_score()
                     else:
-                        proj_score += player.get_proj_score()
+                        proj_score += p.get_proj_score()
             captain = False
         return proj_score
 
