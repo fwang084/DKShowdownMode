@@ -1,7 +1,7 @@
 class Player:
     def __init__(self, name, team, price, proj_score):
         self.name = name
-        self.positions = positions
+        self.team = team
         self.price = price
         self.proj_score = proj_score
     def get_name(self):

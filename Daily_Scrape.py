@@ -35,7 +35,7 @@ def create_players(player_list):
     """
     for i in range(roto_info.nrows):
         row = roto_info.row_values(i)
-        player_list.append(Player(row[0], row[3], row[1], row[7]))
+        player_list.append(Player(row[0], row[2], row[1], row[7]))
 
 roto_spreadsheet = xlrd.open_workbook('nba-player.xls')
 roto_info = roto_spreadsheet.sheet_by_index(0)

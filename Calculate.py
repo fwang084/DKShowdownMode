@@ -96,10 +96,12 @@ def lineup_score(players_chosen):
         return proj_score
 new_player_list = []
 for p in player_list:
-    if p.get_name() not in ["Nikola Jokic"] and p.get:
+    if p.get_name() not in ['Nikola Jokic'] and p.get_team() in ['DEN', 'UTA']:
         new_player_list.append(p)
+for p in new_player_list:
+    print(p.get_name())
 best = optimal_lineup(new_player_list,
-                      ["Nikola Jokic", None, None, None, None, None])
+                      ['Nikola Jokic', None, None, None, None, None])
 for p in best:
     if isinstance(p, str):
         print(p)
