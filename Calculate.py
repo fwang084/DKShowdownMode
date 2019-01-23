@@ -46,48 +46,14 @@ def optimal_lineup(remaining_players, lineup):
         return 0
     else:
         player = remaining_players[0]
-        string_position = player.get_positions()
-        positions = position_converter(string_position)
-        slots = slot_converter(positions)
         available_slots = []
-        for slot in slots:
+        for slot in [0, 1, 2, 3, 4, 5]:
             if lineup[slot] is None:
                 available_slots.append(slot)
-        possible_lineups=[lineup]
+        possible_lineups = [lineup]
         for i in available_slots:
             possible_lineups.append(insertion(lineup, i, player))
         return max([optimal_lineup(remaining_players[1:], a) for a in possible_lineups], key=lambda x: lineup_score(x))
-
-def position_converter(string_position):
-    """
-    Converts a string representing DraftKings position eligibility into a Python list
-    :param string_position: DraftKings position eligibility (ex. 'PG/SG')
-    :return: list consisting of eligible positions (ex. ['PG', 'SG'])
-    """
-    positions = []
-    while string_position != '':
-        if string_position[0] == "/":
-            string_position = string_position[1:]
-        current_position = string_position[0]
-        string_position = string_position[1:]
-        if string_position == '':
-            positions.append(current_position)
-        elif string_position[0] == "/":
-            positions.append(current_position)
-            string_position = string_position[1:]
-        else:
-            current_position = current_position + string_position[0]
-            positions.append(current_position)
-            string_position = string_position[1:]
-    return positions
-
-def slot_converter(positions):
-    """
-    Returns the lineup slot numbers that a player with given position eligibility can be inserted into
-    :param positions: Python list of positions represented by strings
-    :return: list of corresponding slot numbers
-    """
-    return [0, 1, 2, 3, 4, 5]
 
 def insertion(lineup, slot, player):
     """
