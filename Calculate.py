@@ -87,7 +87,7 @@ def slot_converter(positions):
     :param positions: Python list of positions represented by strings
     :return: list of corresponding slot numbers
     """
-    return [0, 1, 2, 3, 4, 5, 6]
+    return [0, 1, 2, 3, 4, 5]
 
 def insertion(lineup, slot, player):
     """
