@@ -46,7 +46,6 @@ def optimal_lineup(remaining_players, lineup):
         return 0
     else:
         player = remaining_players[0]
-        print(player.get_name())
         available_slots = []
         for slot in [0, 1, 2, 3, 4, 5]:
             if lineup[slot] is None:
@@ -102,7 +101,7 @@ inactives = ['LeBron James', 'Lonzo Ball', 'Robert Covington', 'Jeff Teague', 'T
 for p in player_list:
     if p.get_name() not in inactives and p.get_proj_score() > 0:
         new_player_list.append(p)
-best = optimal_lineup(new_player_list, [None, None, None, None, None, None])
+best = optimal_lineup(new_player_list, ['Karl-Anthony Towns', 'Derrick Rose', None, None, None, None])
 
 for p in best:
     if isinstance(p, str):
