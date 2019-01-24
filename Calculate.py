@@ -95,9 +95,12 @@ def lineup_score(players_chosen):
                         proj_score += p.get_proj_score()
             captain = False
         return proj_score
+
 new_player_list = []
+inactives = ['LeBron James', 'Lonzo Ball', 'Robert Covington', 'Jeff Teague', 'Tyus Jones']
+
 for p in player_list:
-    if p.get_name() not in ['LeBron James']:
+    if p.get_name() not in inactives:
         new_player_list.append(p)
 best = optimal_lineup(new_player_list, [None, None, None, None, None, None])
 
