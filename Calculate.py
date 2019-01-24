@@ -100,7 +100,7 @@ new_player_list = []
 inactives = ['LeBron James', 'Lonzo Ball', 'Robert Covington', 'Jeff Teague', 'Tyus Jones']
 
 for p in player_list:
-    if p.get_name() not in inactives:
+    if p.get_name() not in inactives and p.get_proj_score() > 0:
         new_player_list.append(p)
 best = optimal_lineup(new_player_list, [None, None, None, None, None, None])
 

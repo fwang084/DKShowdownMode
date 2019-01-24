@@ -52,5 +52,3 @@ draftkings_info = draftkings_spreadsheet.sheet_by_index(0)
 
 
 player_list = create_players([])
-for p in player_list:
-    print(p.get_name(), p.get_team(), p.get_price(), p.get_proj_score())
