@@ -36,7 +36,7 @@ def create_players(player_list):
     for i in range(draftkings_info.nrows):
         row = draftkings_info.row_values(i)
         if row[4] == 'UTIL':
-            player_list.append(Player(row[2], row[6], row[0]))
+            player_list.append(Player(row[2], row[6], 0))
     for p in player_list:
         for i in range(roto_info.nrows):
             row = roto_info.row_values(i)
