@@ -108,3 +108,4 @@ for p in best:
         print(p)
     else:
         print(p.get_name())
+print(lineup_score(best))
