@@ -26,18 +26,20 @@ def optimal_lineup(remaining_players, lineup):
     for spot in lineup:
         if spot is not None:
             if isinstance(spot, str):
-                for player in new_player_list:
+                for player in player_list:
                     if player.get_name() == spot:
                         if captain:
                             total_salary += 1.5 * player.get_price()
                         else:
                             total_salary += player.get_price()
+                        break
             else:
                 if captain:
                     total_salary += 1.5 * spot.get_price()
                 else:
                     total_salary += spot.get_price()
         captain = False
+    print(total_salary)
     if total_salary > 50000:
         return 0
     if None not in lineup:
@@ -64,7 +66,7 @@ def insertion(lineup, slot, player):
     :return: the new lineup with the Player object entered
     """
     new_lineup = lineup[:]
-    new_lineup[slot]=player
+    new_lineup[slot] = player
     return new_lineup
 
 def lineup_score(players_chosen):
@@ -81,12 +83,13 @@ def lineup_score(players_chosen):
         for p in players_chosen:
             if p is not None:
                 if isinstance(p, str):
-                    for player in new_player_list:
+                    for player in player_list:
                         if p == player.get_name():
                             if captain:
                                 proj_score += 1.5 * player.get_proj_score()
                             else:
                                 proj_score += player.get_proj_score()
+                            break
                 else:
                     if captain:
                         proj_score += 1.5 * p.get_proj_score()
@@ -96,16 +99,24 @@ def lineup_score(players_chosen):
         return proj_score
 
 new_player_list = []
-inactives = ['LeBron James', 'Lonzo Ball', 'Robert Covington', 'Jeff Teague', 'Tyus Jones']
+inactives = ['LeBron James', 'Lonzo Ball', 'Robert Covington', 'Jeff Teague', 'Tyus Jones', 'Kyrie Irving']
 
 for p in player_list:
-    if p.get_name() not in inactives and p.get_proj_score() > 0:
+    if p.get_name() not in inactives and p.get_proj_score() > 10:
         new_player_list.append(p)
-best = optimal_lineup(new_player_list, ['Karl-Anthony Towns', 'Derrick Rose', None, None, None, None])
-
+best = optimal_lineup(new_player_list, ['Kyrie Irving', None, None, None, None, None])
+total = 0
 for p in best:
     if isinstance(p, str):
         print(p)
+        for player in player_list:
+            if player.get_name() == p:
+                print(player.get_price())
+                total += player.get_price()
     else:
         print(p.get_name())
+        print(p.get_price())
+        total += p.get_price()
 print(lineup_score(best))
+print(total)
+
