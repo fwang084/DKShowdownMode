@@ -17,45 +17,60 @@ def find_best_value():
 def optimal_lineup(remaining_players, lineup):
     """
     Tree recursive method to find the optimal lineup given a player budget of $50000
+    Called with an initial lineup of [None]
     :param remaining_players: players that can still be added to the lineup
     :param lineup: players that are already added to the lineup
     :return: list of players in the order [PG, SG, SF, PF, C, G, F, UTIL]
     """
-    total_salary = 0
-    captain = True
-    for spot in lineup:
-        if spot is not None:
-            if isinstance(spot, str):
-                for player in player_list:
-                    if player.get_name() == spot:
-                        if captain:
-                            total_salary += 1.5 * player.get_price()
-                        else:
-                            total_salary += player.get_price()
-                        break
-            else:
-                if captain:
-                    total_salary += 1.5 * spot.get_price()
-                else:
-                    total_salary += spot.get_price()
-        captain = False
+    total_salary = lineup_salary(lineup)
     print(total_salary)
     if total_salary > 50000:
         return 0
-    if None not in lineup:
+    if len(lineup) == 6 and lineup[0] is not None:
         return lineup
     if remaining_players == []:
         return 0
     else:
         player = remaining_players[0]
-        available_slots = []
-        for slot in [0, 1, 2, 3, 4, 5]:
-            if lineup[slot] is None:
-                available_slots.append(slot)
+        captain_available = lineup[0] is None
+        flex_available = len(lineup) < 6
         possible_lineups = [lineup]
-        for i in available_slots:
-            possible_lineups.append(insertion(lineup, i, player))
+        if captain_available:
+            set_captain = lineup[:]
+            set_captain[0] = player
+            possible_lineups.append(set_captain)
+        if flex_available:
+            set_flex = lineup[:]
+            set_flex.append(player)
+            possible_lineups.append(set_flex)
         return max([optimal_lineup(remaining_players[1:], a) for a in possible_lineups], key=lambda x: lineup_score(x))
+
+def preference_optimal_lineup(remaining_players, lineup):
+   """
+   Tree recursive method to find the optimal lineup given a player budget of $50000
+   Called with a lineup which is a 6-item list, with each item either a player name or None
+   :param remaining_players: players that can still be added to the lineup
+   :param lineup: players that are already added to the lineup
+   :return: list of players in the order [PG, SG, SF, PF, C, G, F, UTIL]
+   """
+   total_salary = lineup_salary(lineup)
+   print(total_salary)
+   if total_salary > 50000:
+       return 0
+   if None not in lineup:
+       return lineup
+   if remaining_players == []:
+       return 0
+   else:
+       player = remaining_players[0]
+       available_slots = []
+       for slot in [0, 1, 2, 3, 4, 5]:
+           if lineup[slot] is None:
+               available_slots.append(slot)
+       possible_lineups = [lineup]
+       for i in available_slots:
+           possible_lineups.append(insertion(lineup, i, player))
+       return max([preference_optimal_lineup(remaining_players[1:], a) for a in possible_lineups], key=lambda x: lineup_score(x))
 
 def insertion(lineup, slot, player):
     """
@@ -69,54 +84,86 @@ def insertion(lineup, slot, player):
     new_lineup[slot] = player
     return new_lineup
 
+def lineup_salary(players_chosen):
+    total_salary = 0
+    for x in range(len(players_chosen)):
+        if players_chosen[x] is not None:
+            if isinstance(players_chosen[x], str):
+                for player in player_list:
+                    if player.get_name() == players_chosen[x]:
+                        if x == 0:
+                            total_salary += 1.5 * player.get_price()
+                        else:
+                            total_salary += player.get_price()
+                        break
+            else:
+                if x == 0:
+                    total_salary += 1.5 * players_chosen[x].get_price()
+                else:
+                    total_salary += players_chosen[x].get_price()
+    return total_salary
+
 def lineup_score(players_chosen):
     """
     Sums the projected scores of the players in a lineup
     :param players_chosen: either 0 or a list representing a DraftKings lineup
-    :return: Projected score of the lineup
+    :return: Projected score of the lineup of a valid lineup
     """
     if players_chosen == 0:
         return 0
+    elif len(players_chosen) != 6 or None in players_chosen:
+        return 0
     else:
-        captain = True
         proj_score = 0
-        for p in players_chosen:
-            if p is not None:
-                if isinstance(p, str):
-                    for player in player_list:
-                        if p == player.get_name():
-                            if captain:
+        for x in range(len(players_chosen)):
+            if isinstance(players_chosen[x], str):
+                for player in player_list:
+                        if players_chosen[x] == player.get_name():
+                            if x == 0:
                                 proj_score += 1.5 * player.get_proj_score()
                             else:
                                 proj_score += player.get_proj_score()
                             break
+            else:
+                if x == 0:
+                    proj_score += 1.5 * players_chosen[x].get_proj_score()
                 else:
-                    if captain:
-                        proj_score += 1.5 * p.get_proj_score()
-                    else:
-                        proj_score += p.get_proj_score()
-            captain = False
+                    proj_score += players_chosen[x].get_proj_score()
         return proj_score
 
 new_player_list = []
-inactives = ['LeBron James', 'Lonzo Ball', 'Robert Covington', 'Jeff Teague', 'Tyus Jones', 'Kyrie Irving']
+inactives = ['Lonzo Ball']
 
 for p in player_list:
     if p.get_name() not in inactives and p.get_proj_score() > 10:
         new_player_list.append(p)
-best = optimal_lineup(new_player_list, ['Kyrie Irving', None, None, None, None, None])
+"""best_preferred = preference_optimal_lineup(new_player_list, ['LeBron James', None, None, None, None, None])"""
+best = optimal_lineup(new_player_list, [None])
+
 total = 0
+captain = True
 for p in best:
     if isinstance(p, str):
         print(p)
         for player in player_list:
             if player.get_name() == p:
-                print(player.get_price())
-                total += player.get_price()
+                if captain:
+                    print(1.5 * player.get_price())
+                    total += 1.5 * player.get_price()
+                    captain = False
+                else:
+                    print(player.get_price())
+                    total += player.get_price()
+
     else:
         print(p.get_name())
-        print(p.get_price())
-        total += p.get_price()
+        if captain:
+            print(1.5 * p.get_price())
+            total += 1.5 * p.get_price()
+            captain = False
+        else:
+            print(p.get_price())
+            total += p.get_price()
 print(lineup_score(best))
 print(total)
 
