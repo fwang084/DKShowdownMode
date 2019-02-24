@@ -1,4 +1,4 @@
-# DraftKings ShowDown Mode Optimizer
+# DraftKings Showdown Mode Optimizer
 
 Uses scraped player projections with DraftKings salary information to assist DFS players with lineup construction.
 
