@@ -138,32 +138,7 @@ for p in player_list:
     if p.get_name() not in inactives and p.get_proj_score() > 10:
         new_player_list.append(p)
 """best_preferred = preference_optimal_lineup(new_player_list, ['LeBron James', None, None, None, None, None])"""
-best = optimal_lineup(new_player_list, [None])
 
-total = 0
-captain = True
-for p in best:
-    if isinstance(p, str):
-        print(p)
-        for player in player_list:
-            if player.get_name() == p:
-                if captain:
-                    print(1.5 * player.get_price())
-                    total += 1.5 * player.get_price()
-                    captain = False
-                else:
-                    print(player.get_price())
-                    total += player.get_price()
 
-    else:
-        print(p.get_name())
-        if captain:
-            print(1.5 * p.get_price())
-            total += 1.5 * p.get_price()
-            captain = False
-        else:
-            print(p.get_price())
-            total += p.get_price()
-print(lineup_score(best))
-print(total)
+
 
