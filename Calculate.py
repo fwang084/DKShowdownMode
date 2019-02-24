@@ -132,7 +132,7 @@ def lineup_score(players_chosen):
         return proj_score
 
 new_player_list = []
-inactives = ['Lonzo Ball']
+inactives = ['Will Barton']
 
 for p in player_list:
     if p.get_name() not in inactives and p.get_proj_score() > 10:
