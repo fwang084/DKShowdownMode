@@ -85,6 +85,11 @@ def insertion(lineup, slot, player):
     return new_lineup
 
 def lineup_salary(players_chosen):
+    """
+    Returns the total salary of players in a lineup
+    :param players_chosen: a player of lineup
+    :return: the total salary of players_chosen
+    """
     total_salary = 0
     for x in range(len(players_chosen)):
         if players_chosen[x] is not None:
