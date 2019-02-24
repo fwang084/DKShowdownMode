@@ -1,6 +1,11 @@
 from Calculate import *
 
 def print_lineup(lineup):
+    """
+    Prints out the details of a lineup
+    :param lineup: the lineup to be printed
+    :return: Nothing
+    """
     total = 0
     captain = True
     for p in lineup:
@@ -31,6 +36,13 @@ def print_lineup(lineup):
     print(total)
 
 def filter_players(player_list, inactives, threshold):
+    """
+
+    :param player_list:
+    :param inactives:
+    :param threshold:
+    :return:
+    """
     new_player_list = []
     for p in player_list:
         if p.get_name() not in inactives and p.get_proj_score() > threshold:
