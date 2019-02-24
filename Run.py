@@ -37,11 +37,11 @@ def print_lineup(lineup):
 
 def filter_players(player_list, inactives, threshold):
     """
-
-    :param player_list:
-    :param inactives:
-    :param threshold:
-    :return:
+    Filters a player_list for unwanted players to increase search speed
+    :param player_list: the original player list, to be filtered
+    :param inactives: players who are not playing
+    :param threshold: the threshold for projected points that players must reach to be considered
+    :return: the new, filtered player list
     """
     new_player_list = []
     for p in player_list:
