@@ -136,12 +136,6 @@ def lineup_score(players_chosen):
                     proj_score += players_chosen[x].get_proj_score()
         return proj_score
 
-new_player_list = []
-inactives = ['Will Barton']
-
-for p in player_list:
-    if p.get_name() not in inactives and p.get_proj_score() > 10:
-        new_player_list.append(p)
 """best_preferred = preference_optimal_lineup(new_player_list, ['LeBron James', None, None, None, None, None])"""
 
 

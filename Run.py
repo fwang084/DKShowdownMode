@@ -30,5 +30,14 @@ def print_lineup(lineup):
     print("Total salary:")
     print(total)
 
+def filter_players(player_list, inactives, threshold):
+    new_player_list = []
+    for p in player_list:
+        if p.get_name() not in inactives and p.get_proj_score() > threshold:
+            new_player_list.append(p)
+    return new_player_list
+
+inactives = []
+new_player_list = filter_players(player_list, inactives, 10)
 best = optimal_lineup(new_player_list, [None])
 print_lineup(best)
