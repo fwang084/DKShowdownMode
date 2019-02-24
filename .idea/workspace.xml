@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8473787-d2bb-496b-917a-71823654ee6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/Run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/n.db" beforeDir="false" afterPath="$PROJECT_DIR$/n.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +14,7 @@
     <session id="816720673">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.8" value="1" />
@@ -60,7 +60,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Daily_Scrape.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
+            <state relative-caret-position="810">
               <caret line="54" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
@@ -69,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Calculate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
+            <state relative-caret-position="1800">
               <caret line="137" selection-start-line="137" selection-end-line="137" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -82,7 +82,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Run.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
@@ -118,6 +118,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="43" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="817" />
@@ -218,7 +219,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="817" extended-state="0" />
+    <frame x="43" y="23" width="1440" height="817" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
@@ -226,14 +227,14 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49570817" weight="0.32965517" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49499285" weight="0.32965517" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49570817" visible="true" weight="0.3324138" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50429183" side_tool="true" visible="true" weight="0.3324138" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49570817" weight="0.3324138" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50500715" side_tool="true" visible="true" weight="0.3324138" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -257,33 +258,12 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Daily_Scrape.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Player.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
           <folding>
             <marker date="1548361832446" expanded="true" signature="365:395" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Calculate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <marker date="1550989894847" expanded="true" signature="3592:4311" ph="..." />
           </folding>
         </state>
       </provider>
@@ -295,6 +275,27 @@
           <folding>
             <marker date="1550990188050" expanded="true" signature="170:171" ph="..." />
             <marker date="1550990188050" expanded="true" signature="1473:1658" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Daily_Scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Calculate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <marker date="1550989894847" expanded="true" signature="3592:4311" ph="..." />
           </folding>
         </state>
       </provider>
